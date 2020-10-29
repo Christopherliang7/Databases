@@ -1,5 +1,5 @@
 var express = require('express');
-var db = require('./db');
+var db = require('./db').dbConnection;
 
 // Middleware
 var morgan = require('morgan');
@@ -17,6 +17,9 @@ app.set('port', 3000);
 // Logging and parsing
 app.use(morgan('dev'));
 app.use(parser.json());
+
+// Set up db connection
+db.connect();
 
 // Set up our routes
 app.use('/classes', router);
