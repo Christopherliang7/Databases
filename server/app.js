@@ -20,6 +20,8 @@ app.use(parser.json());
 
 // Set up db connection
 db.connect();
+// var tablename = 'messages';
+// dbConnection.query('truncate ' + tablename, done);
 
 // Set up our routes
 app.use('/classes', router);
